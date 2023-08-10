@@ -66,11 +66,9 @@ python test.py --traj --human_num 10
 
 ## Video Demo
 
-|  Holonomic Robot in Simple Scenarios   |      
+|  Holonomic Robot in Simple Scenarios   |      Holonomic Robot in Complex Scenarios**   |
 | :--------------------------------------------: | 
-| <img src="doc/test_safe_5human.gif" width="500" /> | 
-|         **Holonomic Robot in Complex Scenarios**   |
-| <img src="doc/test_safe_10human.gif" width="500" /> | 
+| <img src="doc/test_safe_5human.gif" width="500" /> | <img src="doc/test_safe_10human.gif" width="500" /> | 
 
 
 
