@@ -48,6 +48,9 @@ python test.py --traj
 ```
 python test.py --traj --human_num 10
 ```
+
+4. plot the result.
+ in crowdnav/plotall folder
 ```
 (xjcrowdnav) xxx@xxx-amd:/mnt/f/xujing/intrinsic-Her-Ntime/crowd_nav/plotall$ python plot.py data/ --plot_time
 ```
