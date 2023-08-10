@@ -61,7 +61,6 @@ python test.py --traj --human_num 10
 | :----------------------------------------: | :----------------------------------------: |
 | <img src="doc/train_sr_fig.png" width="500" /> | <img src="doc/train_cr_fig.png" width="500" /> |
 |               Reward               |              time               |
-| :----------------------------------------: | :----------------------------------------: |
 | <img src="doc/train_reward_fig.png" width="500" /> | <img src="doc/train_time_fig.png" width="500" /> |
 
 ## Trajectory Diagram
