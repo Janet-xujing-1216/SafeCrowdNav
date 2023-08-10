@@ -57,12 +57,12 @@ python test.py --traj --human_num 10
 ## Trajectory Diagram
 |              Simple Scenario               |              Complex Scenario              |
 | :----------------------------------------: | :----------------------------------------: |
-| <img src="doc/traj_5human.png" width="500" /> | <img src="doc/traj_10human.png" width="500" /> |
+| <img src="doc/traj_5human.pdf" width="500" /> | <img src="doc/traj_10human.pdf" width="500" /> |
 ## Safety Weights
 
 |                Simple Scenario                |               Complex Scenario                |
 | :-------------------------------------------: | :-------------------------------------------: |
-| <img src="doc/low score.png" width="500" /> | <img src="doc/high score.png" width="500" /> |
+| <img src="doc/low score.pdf" width="500" /> | <img src="doc/high score.pdf" width="500" /> |
 
 ## Video Demo
 
