@@ -7,7 +7,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from crowd_sim.envs.utils.action import ActionXY
-from utils.memory import PrioritizedReplayBufferDataLoader
+
 
 class TSRLTrainer(object):
     def __init__(self, value_estimator, state_predictor, memory, device, policy, writer, batch_size, optimizer_str, human_num,
@@ -133,12 +133,11 @@ class TSRLTrainer(object):
                          epoch_s_loss / len(self.memory))
         return
 
-    def optimize_batch(self, num_batches, episode):
+    def optimize_batch(self, num_batches, episode,robot_states_seen):
         if self.v_optimizer is None:
             raise ValueError('Learning rate is not set!')
         if self.data_loader is None:
-            # self.data_loader = DataLoader(self.memory, self.batch_size, shuffle=True)
-            self.data_loader = PrioritizedReplayBufferDataLoader(self.memory, batch_size=self.batch_size)
+            self.data_loader = DataLoader(self.memory, self.batch_size, shuffle=True)
         v_losses = 0
         sim_v_losses = 0
         s_losses = 0
@@ -146,31 +145,12 @@ class TSRLTrainer(object):
         self.target_model.value_network.eval()
         self.value_estimator.value_network.eval()
         for data in self.data_loader:
-            # batch_num = int(self.data_loader.sampler.num_samples // self.batch_size)
-            batch_num = int(len(self.memory) // self.batch_size) # 因为我把dataloader改成了sample batch_size大小的
+            batch_num = int(self.data_loader.sampler.num_samples // self.batch_size)
             if self.intrinsic_reward_alg is not None and self.intrinsic_reward_alg.name == "RE3":
-                # robot_states, human_states, actions, _, done, rewards, next_robot_states, next_human_states, embeddings = data
-                robot_states = torch.stack([s[0] for s in data])
-                human_states = torch.stack([s[1] for s in data])
-                actions = torch.tensor([s[2] for s in data])
-                
-                done = torch.tensor([s[4] for s in data])
-                rewards = torch.tensor([s[5] for s in data])
-                next_robot_states = torch.stack([s[6] for s in data])
-                next_human_states = torch.stack([s[7] for s in data])
-                embeddings = torch.stack([s[8] for s in data])
+                robot_states, human_states, actions, _, done, rewards, next_robot_states, next_human_states, embeddings = data
                 rewards = rewards + self.intrinsic_reward_alg.compute_intrinsic_reward_batch(embeddings, episode)
             else:
-                # robot_states, human_states, actions, _, done, rewards, next_robot_states, next_human_states = data
-                robot_states, human_states, actions, _, done, rewards, next_robot_states, next_human_states, embeddings = data
-                robot_states = torch.stack([s[0] for s in data])
-                human_states = torch.stack([s[1] for s in data])
-                actions = torch.tensor([s[2] for s in data])
-                
-                done = torch.tensor([s[4] for s in data])
-                rewards = torch.tensor([s[5] for s in data])
-                next_robot_states = torch.stack([s[6] for s in data])
-                next_human_states = torch.stack([s[7] for s in data])
+                robot_states, human_states, actions, _, done, rewards, next_robot_states, next_human_states = data
             # optimize value estimator
             self.v_optimizer.zero_grad()
             actions = actions.to(self.device)
@@ -189,10 +169,8 @@ class TSRLTrainer(object):
             # for DQN
             done_infos = (1-done)
             target_values = rewards + torch.mul(done_infos, next_Q_value * gamma_bar)
-            # target_values = rewards.unsqueeze(1) + torch.mul(done_infos.unsqueeze(1), next_Q_value * gamma_bar)
             # clip_base = outputs - target_values
-            # value_loss = self.criterion(outputs, target_values)
-            value_loss = self.criterion(outputs.float(), target_values.float())
+            value_loss = self.criterion(outputs, target_values)
             value_loss.backward()
             self.v_optimizer.step()
             v_losses += value_loss.data.item()
@@ -209,7 +187,7 @@ class TSRLTrainer(object):
                 self.intrinsic_reward_alg.optimize((robot_states, human_states), (next_robot_states, next_human_states),
                                         actions)
                 intrinsic_rew = self.intrinsic_reward_alg.compute_intrinsic_reward_batch((sim_robot_states, sim_human_states), 
-                                (sim_next_robot_states, sim_next_human_states), sim_actions)
+                                (sim_next_robot_states, sim_next_human_states), sim_actions,robot_states_seen)
                 sim_rewards = sim_rewards + intrinsic_rew.to(sim_rewards.device)
                 # self.intrinsic_reward_alg.optimize((sim_robot_states, sim_human_states), 
                 #                 (sim_next_robot_states, sim_next_human_states), sim_actions)

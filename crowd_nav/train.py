@@ -1,4 +1,6 @@
 import sys
+print(sys.path)
+sys.path.insert(0, '/mnt/f/xujing/intrinsic-Ntime')
 import logging
 import argparse
 import os
@@ -12,7 +14,7 @@ import re
 from tensorboardX import SummaryWriter
 from crowd_sim.envs.utils.robot import Robot
 from crowd_nav.utils.trainer import VNRLTrainer, MPRLTrainer, TSRLTrainer, TD3RLTrainer
-from crowd_nav.utils.memory import PrioritizedReplayMemory,ReplayMemory
+from crowd_nav.utils.memory import ReplayMemory
 from crowd_nav.utils.explorer import Explorer
 from crowd_nav.policy.policy_factory import policy_factory
 from crowd_nav.policy.reward_estimate import Reward_Estimator
@@ -46,21 +48,6 @@ def main(args):
     if make_new_dir:
         os.makedirs(args.output_dir)
         shutil.copy(args.config, os.path.join(args.output_dir, 'config.py'))
-
-        # # insert the arguments from command line to the config file
-        # with open(os.path.join(args.output_dir, 'config.py'), 'r') as fo:
-        #     config_text = fo.read()
-        # search_pairs = {r"gcn.X_dim = \d*": "gcn.X_dim = {}".format(args.X_dim),
-        #                 r"gcn.num_layer = \d": "gcn.num_layer = {}".format(args.layers),
-        #                 r"gcn.similarity_function = '\w*'": "gcn.similarity_function = '{}'".format(args.sim_func),
-        #                 r"gcn.layerwise_graph = \w*": "gcn.layerwise_graph = {}".format(args.layerwise_graph),
-        #                 r"gcn.skip_connection = \w*": "gcn.skip_connection = {}".format(args.skip_connection)}
-        #
-        # for find, replace in search_pairs.items():
-        #     config_text = re.sub(find, replace, config_text)
-        #
-        # with open(os.path.join(args.output_dir, 'config.py'), 'w') as fo:
-        #     fo.write(config_text)
 
     args.config = os.path.join(args.output_dir, 'config.py')
     log_file = os.path.join(args.output_dir, 'output.log')
@@ -143,8 +130,7 @@ def main(args):
     checkpoint_interval = train_config.train.checkpoint_interval
 
     # configure trainer and explorer
-    # memory = ReplayMemory(capacity)
-    memory = PrioritizedReplayMemory(capacity)
+    memory = ReplayMemory(capacity)
     model = policy.get_model()
     batch_size = train_config.trainer.batch_size
     optimizer = train_config.trainer.optimizer
@@ -216,7 +202,7 @@ def main(args):
     #     il_policy.multiagent_training = policy.multiagent_training
     #     il_policy.safety_space = safety_space
     #     robot.set_policy(il_policy)
-    #     explorer.run_k_episodes(il_episodes, 'train', update_memory=True, imitation_learning=True)
+    #     explorer.run_k_episodes(il_episodes, 'train', update_memory=True, imitation_learning=True,reward_estimator = reward_estimator)
     #     trainer.optimize_epoch(il_epochs)
     #     policy.save_model(il_weight_file)
     #     logging.info('Finish imitation learning. Weights saved.')
@@ -233,7 +219,6 @@ def main(args):
     # fill the memory pool with some RL experience
     if args.resume:
         robot.policy.set_epsilon(epsilon_end)
-        # explorer.run_k_episodes(100, 'train', update_memory=True, episode=0)
         explorer.run_k_episodes(100, 'train', update_memory=True, episode=0,reward_estimator = reward_estimator)
         logging.info('Experience set size: %d/%d', len(memory), memory.capacity)
     episode = 0
@@ -244,11 +229,11 @@ def main(args):
 
     # if episode % evaluation_interval == 0:
     #     logging.info('Evaluate the model instantly after imitation learning on the validation cases')
-    #     explorer.run_k_episodes(env.case_size['val'], 'val', episode=episode)
+    #     explorer.run_k_episodes(env.case_size['val'], 'val', episode=episode,reward_estimator = reward_estimator)
     #     explorer.log('val', episode // evaluation_interval)
 
     #     if args.test_after_every_eval:
-    #         explorer.run_k_episodes(env.case_size['test'], 'test', episode=episode, print_failure=True)
+    #         explorer.run_k_episodes(env.case_size['test'], 'test', episode=episode, print_failure=True,reward_estimator = reward_estimator)
     #         explorer.log('test', episode // evaluation_interval)
 
     episode = 0
@@ -276,7 +261,7 @@ def main(args):
         robot.policy.set_epsilon(epsilon)
 
         # sample k episodes into memory and optimize over the generated memory
-        _, _, nav_time, sum_reward, ave_return, discom_time, total_time = \
+        _, _, nav_time, sum_reward, ave_return, discom_time, total_time,robot_states_seen = \
             explorer.run_k_episodes(sample_episodes, 'train', update_memory=True, episode=episode,reward_estimator = reward_estimator)
         eps_count = eps_count + 1
         reward_in_last_interval = reward_in_last_interval + sum_reward
@@ -307,14 +292,14 @@ def main(args):
             plt.axis([0, eps_count, min_reward, max_reward])
             savefig(args.output_dir + "/reward_record.jpg")
         explorer.log('train', episode)
-        trainer.optimize_batch(train_batches, episode)
+        trainer.optimize_batch(train_batches, episode,robot_states_seen)
         episode += 1
 
         if episode % target_update_interval == 0:
             trainer.update_target_model(model)
         # evaluate the model
         if episode % evaluation_interval == 0:
-            _, _, _, reward, average_return, _, _ = explorer.run_k_episodes(env.case_size['val'], 'val', episode=episode,reward_estimator = reward_estimator)
+            _, _, _, reward, average_return, _, _,_ = explorer.run_k_episodes(env.case_size['val'], 'val', episode=episode,reward_estimator = reward_estimator)
             explorer.log('val', episode // evaluation_interval)
 
             if episode % checkpoint_interval == 0 and average_return > best_val_return:
@@ -322,7 +307,7 @@ def main(args):
                 best_val_model = copy.deepcopy(policy.get_state_dict())
         # test after every evaluation to check how the generalization performance evolves
             if args.test_after_every_eval:
-                explorer.run_k_episodes(env.case_size['test'], 'test', episode=episode, print_failure=True,reward_estimator = reward_estimator)
+                explorer.run_k_episodes(env.case_size['test'], 'test', episode=episode, print_failure=True)
                 explorer.log('test', episode // evaluation_interval)
 
         if episode != 0 and episode % checkpoint_interval == 0:
@@ -342,12 +327,12 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Parse configuration file')
     parser.add_argument('--policy', type=str, default='tree-search-rl')
-    parser.add_argument('--config', type=str, default='configs/icra_benchmark/ts_separate_random_encoder.py')
-    parser.add_argument('--output_dir', type=str, default='data/tsrl_random_encoder/')
+    parser.add_argument('--config', type=str, default='configs/icra_benchmark/ts_separate_curiosity.py')
+    parser.add_argument('--output_dir', type=str, default='data/output')
     parser.add_argument('--overwrite', default=False, action='store_true')
     parser.add_argument('--weights', type=str)
     parser.add_argument('--resume', default=False, action='store_true')
-    parser.add_argument('--gpu', default=False, action='store_true')
+    parser.add_argument('--gpu', default=True, action='store_true')
     parser.add_argument('--debug', default=False, action='store_true')
     parser.add_argument('--test_after_every_eval', default=False, action='store_true')
     parser.add_argument('--randomseed', type=int, default=7)

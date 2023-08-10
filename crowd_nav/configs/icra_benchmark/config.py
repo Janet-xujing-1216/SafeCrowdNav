@@ -134,7 +134,7 @@ class BasePolicyConfig(object):
 
 class BaseTrainConfig(object):
     trainer = Config()
-    trainer.batch_size = 10
+    trainer.batch_size = 100
     trainer.optimizer = 'Adam'
 
     imitation_learning = Config()
@@ -161,7 +161,7 @@ class BaseTrainConfig(object):
     train.epsilon_end = 0.1
     train.epsilon_decay = 4000
     train.checkpoint_interval = 500
-    train.exploration_alg = "epsilon_greedy"
+    train.exploration_alg = "curiosity"
 
     train.train_with_pretend_batch = False
 

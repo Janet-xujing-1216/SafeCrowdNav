@@ -1,0 +1,418 @@
+2023-04-21 10:39:46, INFO: Using device: cpu
+2023-04-21 10:39:46, INFO: Loaded RL weights with best VAL
+2023-04-21 10:54:52, INFO: Using device: cpu
+2023-04-21 10:54:52, INFO: Loaded RL weights with best VAL
+2023-04-21 10:54:52, INFO: Similarity_func: concatenation
+2023-04-21 10:54:52, INFO: Layerwise_graph: False
+2023-04-21 10:54:52, INFO: Skip_connection: True
+2023-04-21 10:54:52, INFO: Number of layers: 1
+2023-04-21 10:54:52, INFO: Similarity_func: concatenation
+2023-04-21 10:54:52, INFO: Layerwise_graph: False
+2023-04-21 10:54:52, INFO: Skip_connection: True
+2023-04-21 10:54:52, INFO: Number of layers: 1
+2023-04-21 10:54:52, INFO: Planning depth: 1
+2023-04-21 10:54:52, INFO: Planning width: 10
+2023-04-21 10:54:52, INFO: Sparse search: None
+2023-04-21 14:21:42, INFO: Using device: cpu
+2023-04-21 14:21:42, INFO: Loaded RL weights with best VAL
+2023-04-21 14:21:42, INFO: Similarity_func: concatenation
+2023-04-21 14:21:42, INFO: Layerwise_graph: False
+2023-04-21 14:21:42, INFO: Skip_connection: True
+2023-04-21 14:21:42, INFO: Number of layers: 1
+2023-04-21 14:21:42, INFO: Similarity_func: concatenation
+2023-04-21 14:21:42, INFO: Layerwise_graph: False
+2023-04-21 14:21:42, INFO: Skip_connection: True
+2023-04-21 14:21:42, INFO: Number of layers: 1
+2023-04-21 14:21:42, INFO: Planning depth: 1
+2023-04-21 14:21:42, INFO: Planning width: 10
+2023-04-21 14:21:42, INFO: Sparse search: None
+2023-04-21 14:21:43, INFO: human number: 5
+2023-04-21 14:21:43, INFO: Not randomize human's radius and preferred speed
+2023-04-21 14:21:43, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-04-21 14:21:43, INFO: Square width: 10, circle width: 4
+2023-04-21 14:21:43, INFO: rotation constraint: 0.5235987755982988
+2023-04-21 14:21:43, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-04-21 14:25:04, INFO: Using device: cpu
+2023-04-21 14:25:04, INFO: Loaded RL weights with best VAL
+2023-04-21 14:25:04, INFO: Similarity_func: concatenation
+2023-04-21 14:25:04, INFO: Layerwise_graph: False
+2023-04-21 14:25:04, INFO: Skip_connection: True
+2023-04-21 14:25:04, INFO: Number of layers: 1
+2023-04-21 14:25:04, INFO: Similarity_func: concatenation
+2023-04-21 14:25:04, INFO: Layerwise_graph: False
+2023-04-21 14:25:04, INFO: Skip_connection: True
+2023-04-21 14:25:04, INFO: Number of layers: 1
+2023-04-21 14:25:04, INFO: Planning depth: 1
+2023-04-21 14:25:04, INFO: Planning width: 10
+2023-04-21 14:25:04, INFO: Sparse search: None
+2023-04-21 14:25:04, INFO: human number: 5
+2023-04-21 14:25:04, INFO: Not randomize human's radius and preferred speed
+2023-04-21 14:25:04, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-04-21 14:25:04, INFO: Square width: 10, circle width: 4
+2023-04-21 14:25:04, INFO: rotation constraint: 0.5235987755982988
+2023-04-21 14:25:04, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-04-21 14:25:05, INFO: Animation.save using <class 'matplotlib.animation.FFMpegWriter'>
+2023-04-21 14:25:05, INFO: MovieWriter._run: running command: ffmpeg -f rawvideo -vcodec rawvideo -s 700x700 -pix_fmt rgba -r 4 -loglevel error -i pipe: -vcodec h264 -pix_fmt yuv420p -b 1800k -metadata artist=Me -y data/output/test_10human.mp4
+2023-04-21 14:25:15, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.134919
+2023-04-21 14:27:23, INFO: Using device: cpu
+2023-04-21 14:27:23, INFO: Loaded RL weights with best VAL
+2023-04-21 14:27:23, INFO: Similarity_func: concatenation
+2023-04-21 14:27:23, INFO: Layerwise_graph: False
+2023-04-21 14:27:23, INFO: Skip_connection: True
+2023-04-21 14:27:23, INFO: Number of layers: 1
+2023-04-21 14:27:23, INFO: Similarity_func: concatenation
+2023-04-21 14:27:23, INFO: Layerwise_graph: False
+2023-04-21 14:27:23, INFO: Skip_connection: True
+2023-04-21 14:27:23, INFO: Number of layers: 1
+2023-04-21 14:27:23, INFO: Planning depth: 1
+2023-04-21 14:27:23, INFO: Planning width: 10
+2023-04-21 14:27:23, INFO: Sparse search: None
+2023-04-21 14:27:24, INFO: human number: 10
+2023-04-21 14:27:24, INFO: Not randomize human's radius and preferred speed
+2023-04-21 14:27:24, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-04-21 14:27:24, INFO: Square width: 10, circle width: 4
+2023-04-21 14:27:24, INFO: rotation constraint: 0.5235987755982988
+2023-04-21 14:27:24, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-04-21 14:27:24, INFO: Animation.save using <class 'matplotlib.animation.FFMpegWriter'>
+2023-04-21 14:27:24, INFO: MovieWriter._run: running command: ffmpeg -f rawvideo -vcodec rawvideo -s 700x700 -pix_fmt rgba -r 4 -loglevel error -i pipe: -vcodec h264 -pix_fmt yuv420p -b 1800k -metadata artist=Me -y data/output/test_10human.mp4
+2023-04-21 14:27:41, INFO: It takes 12.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 0.971152
+2023-04-21 14:28:40, INFO: Using device: cpu
+2023-04-21 14:28:40, INFO: Loaded RL weights with best VAL
+2023-04-21 14:28:40, INFO: Similarity_func: concatenation
+2023-04-21 14:28:40, INFO: Layerwise_graph: False
+2023-04-21 14:28:40, INFO: Skip_connection: True
+2023-04-21 14:28:40, INFO: Number of layers: 1
+2023-04-21 14:28:40, INFO: Similarity_func: concatenation
+2023-04-21 14:28:40, INFO: Layerwise_graph: False
+2023-04-21 14:28:40, INFO: Skip_connection: True
+2023-04-21 14:28:40, INFO: Number of layers: 1
+2023-04-21 14:28:40, INFO: Planning depth: 1
+2023-04-21 14:28:40, INFO: Planning width: 10
+2023-04-21 14:28:40, INFO: Sparse search: None
+2023-04-21 14:28:41, INFO: human number: 5
+2023-04-21 14:28:41, INFO: Not randomize human's radius and preferred speed
+2023-04-21 14:28:41, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-04-21 14:28:41, INFO: Square width: 10, circle width: 4
+2023-04-21 14:28:41, INFO: rotation constraint: 0.5235987755982988
+2023-04-21 14:28:41, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-04-21 14:28:41, INFO: Animation.save using <class 'matplotlib.animation.FFMpegWriter'>
+2023-04-21 14:28:41, INFO: MovieWriter._run: running command: ffmpeg -f rawvideo -vcodec rawvideo -s 700x700 -pix_fmt rgba -r 4 -loglevel error -i pipe: -vcodec h264 -pix_fmt yuv420p -b 1800k -metadata artist=Me -y data/output/test_5human.mp4
+2023-04-21 14:28:51, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.134919
+2023-04-21 14:29:56, INFO: Using device: cpu
+2023-04-21 14:29:56, INFO: Loaded RL weights with best VAL
+2023-04-21 14:29:56, INFO: Similarity_func: concatenation
+2023-04-21 14:29:56, INFO: Layerwise_graph: False
+2023-04-21 14:29:56, INFO: Skip_connection: True
+2023-04-21 14:29:56, INFO: Number of layers: 1
+2023-04-21 14:29:56, INFO: Similarity_func: concatenation
+2023-04-21 14:29:56, INFO: Layerwise_graph: False
+2023-04-21 14:29:56, INFO: Skip_connection: True
+2023-04-21 14:29:56, INFO: Number of layers: 1
+2023-04-21 14:29:56, INFO: Planning depth: 1
+2023-04-21 14:29:56, INFO: Planning width: 10
+2023-04-21 14:29:56, INFO: Sparse search: None
+2023-04-21 14:29:57, INFO: human number: 10
+2023-04-21 14:29:57, INFO: Not randomize human's radius and preferred speed
+2023-04-21 14:29:57, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-04-21 14:29:57, INFO: Square width: 10, circle width: 4
+2023-04-21 14:29:57, INFO: rotation constraint: 0.5235987755982988
+2023-04-21 14:29:57, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-04-21 14:29:59, INFO: It takes 12.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 0.971152
+2023-04-21 14:31:19, INFO: Using device: cpu
+2023-04-21 14:31:19, INFO: Loaded RL weights with best VAL
+2023-04-21 14:31:19, INFO: Similarity_func: concatenation
+2023-04-21 14:31:19, INFO: Layerwise_graph: False
+2023-04-21 14:31:19, INFO: Skip_connection: True
+2023-04-21 14:31:19, INFO: Number of layers: 1
+2023-04-21 14:31:19, INFO: Similarity_func: concatenation
+2023-04-21 14:31:19, INFO: Layerwise_graph: False
+2023-04-21 14:31:19, INFO: Skip_connection: True
+2023-04-21 14:31:19, INFO: Number of layers: 1
+2023-04-21 14:31:19, INFO: Planning depth: 1
+2023-04-21 14:31:19, INFO: Planning width: 10
+2023-04-21 14:31:19, INFO: Sparse search: None
+2023-04-21 14:31:20, INFO: human number: 5
+2023-04-21 14:31:20, INFO: Not randomize human's radius and preferred speed
+2023-04-21 14:31:20, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-04-21 14:31:20, INFO: Square width: 10, circle width: 4
+2023-04-21 14:31:20, INFO: rotation constraint: 0.5235987755982988
+2023-04-21 14:31:20, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-04-21 14:31:20, INFO: Animation.save using <class 'matplotlib.animation.FFMpegWriter'>
+2023-04-21 14:31:20, INFO: MovieWriter._run: running command: ffmpeg -f rawvideo -vcodec rawvideo -s 700x700 -pix_fmt rgba -r 4 -loglevel error -i pipe: -vcodec h264 -pix_fmt yuv420p -b 1800k -metadata artist=Me -y data/output/test_5human.mp4
+2023-04-21 14:31:30, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.075212
+2023-04-21 14:33:17, INFO: Using device: cpu
+2023-04-21 14:33:17, INFO: Loaded RL weights with best VAL
+2023-04-21 14:33:17, INFO: Similarity_func: concatenation
+2023-04-21 14:33:17, INFO: Layerwise_graph: False
+2023-04-21 14:33:17, INFO: Skip_connection: True
+2023-04-21 14:33:17, INFO: Number of layers: 1
+2023-04-21 14:33:17, INFO: Similarity_func: concatenation
+2023-04-21 14:33:17, INFO: Layerwise_graph: False
+2023-04-21 14:33:17, INFO: Skip_connection: True
+2023-04-21 14:33:17, INFO: Number of layers: 1
+2023-04-21 14:33:17, INFO: Planning depth: 1
+2023-04-21 14:33:17, INFO: Planning width: 10
+2023-04-21 14:33:17, INFO: Sparse search: None
+2023-04-21 14:33:18, INFO: human number: 5
+2023-04-21 14:33:18, INFO: Not randomize human's radius and preferred speed
+2023-04-21 14:33:18, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-04-21 14:33:18, INFO: Square width: 10, circle width: 4
+2023-04-21 14:33:18, INFO: rotation constraint: 0.5235987755982988
+2023-04-21 14:33:18, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-04-21 14:33:19, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.075212
+2023-04-21 14:33:58, INFO: Using device: cpu
+2023-04-21 14:33:58, INFO: Loaded RL weights with best VAL
+2023-04-21 14:33:58, INFO: Similarity_func: concatenation
+2023-04-21 14:33:58, INFO: Layerwise_graph: False
+2023-04-21 14:33:58, INFO: Skip_connection: True
+2023-04-21 14:33:58, INFO: Number of layers: 1
+2023-04-21 14:33:58, INFO: Similarity_func: concatenation
+2023-04-21 14:33:58, INFO: Layerwise_graph: False
+2023-04-21 14:33:58, INFO: Skip_connection: True
+2023-04-21 14:33:58, INFO: Number of layers: 1
+2023-04-21 14:33:58, INFO: Planning depth: 1
+2023-04-21 14:33:58, INFO: Planning width: 10
+2023-04-21 14:33:58, INFO: Sparse search: None
+2023-04-21 14:33:59, INFO: human number: 5
+2023-04-21 14:33:59, INFO: Not randomize human's radius and preferred speed
+2023-04-21 14:33:59, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-04-21 14:33:59, INFO: Square width: 10, circle width: 4
+2023-04-21 14:33:59, INFO: rotation constraint: 0.5235987755982988
+2023-04-21 14:33:59, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-04-21 14:34:00, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.134919
+2023-05-10 10:41:12, INFO: Using device: cpu
+2023-05-10 10:41:12, INFO: Loaded RL weights with best VAL
+2023-05-10 10:41:12, INFO: Similarity_func: concatenation
+2023-05-10 10:41:12, INFO: Layerwise_graph: False
+2023-05-10 10:41:12, INFO: Skip_connection: True
+2023-05-10 10:41:12, INFO: Number of layers: 1
+2023-05-10 10:41:12, INFO: Similarity_func: concatenation
+2023-05-10 10:41:12, INFO: Layerwise_graph: False
+2023-05-10 10:41:12, INFO: Skip_connection: True
+2023-05-10 10:41:12, INFO: Number of layers: 1
+2023-05-10 10:41:12, INFO: Planning depth: 1
+2023-05-10 10:41:12, INFO: Planning width: 10
+2023-05-10 10:41:12, INFO: Sparse search: None
+2023-05-10 10:41:14, INFO: human number: 5
+2023-05-10 10:41:14, INFO: Not randomize human's radius and preferred speed
+2023-05-10 10:41:14, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-05-10 10:41:14, INFO: Square width: 10, circle width: 4
+2023-05-10 10:41:14, INFO: rotation constraint: 0.5235987755982988
+2023-05-10 10:41:14, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-05-10 10:41:14, INFO: Animation.save using <class 'matplotlib.animation.FFMpegWriter'>
+2023-05-10 10:41:14, INFO: MovieWriter._run: running command: ffmpeg -f rawvideo -vcodec rawvideo -s 700x700 -pix_fmt rgba -r 4 -loglevel error -i pipe: -vcodec h264 -pix_fmt yuv420p -b 1800k -metadata artist=Me -y data/output/test_safe_5human.mp4
+2023-05-10 10:41:25, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.134919
+2023-05-10 10:59:38, INFO: Using device: cpu
+2023-05-10 10:59:38, INFO: Loaded RL weights with best VAL
+2023-05-10 10:59:38, INFO: Similarity_func: concatenation
+2023-05-10 10:59:38, INFO: Layerwise_graph: False
+2023-05-10 10:59:38, INFO: Skip_connection: True
+2023-05-10 10:59:38, INFO: Number of layers: 1
+2023-05-10 10:59:38, INFO: Similarity_func: concatenation
+2023-05-10 10:59:38, INFO: Layerwise_graph: False
+2023-05-10 10:59:38, INFO: Skip_connection: True
+2023-05-10 10:59:38, INFO: Number of layers: 1
+2023-05-10 10:59:38, INFO: Planning depth: 1
+2023-05-10 10:59:38, INFO: Planning width: 10
+2023-05-10 10:59:38, INFO: Sparse search: None
+2023-05-10 10:59:39, INFO: human number: 5
+2023-05-10 10:59:39, INFO: Not randomize human's radius and preferred speed
+2023-05-10 10:59:39, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-05-10 10:59:39, INFO: Square width: 10, circle width: 4
+2023-05-10 10:59:39, INFO: rotation constraint: 0.5235987755982988
+2023-05-10 10:59:39, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-05-10 10:59:39, INFO: Animation.save using <class 'matplotlib.animation.FFMpegWriter'>
+2023-05-10 10:59:39, INFO: MovieWriter._run: running command: ffmpeg -f rawvideo -vcodec rawvideo -s 700x700 -pix_fmt rgba -r 4 -loglevel error -i pipe: -vcodec h264 -pix_fmt yuv420p -b 1800k -metadata artist=Me -y data/output/test_safe_10human.mp4
+2023-05-10 10:59:49, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.134919
+2023-05-10 11:24:36, INFO: Using device: cpu
+2023-05-10 11:24:36, INFO: Loaded RL weights with best VAL
+2023-05-10 11:24:36, INFO: Similarity_func: concatenation
+2023-05-10 11:24:36, INFO: Layerwise_graph: False
+2023-05-10 11:24:36, INFO: Skip_connection: True
+2023-05-10 11:24:36, INFO: Number of layers: 1
+2023-05-10 11:24:36, INFO: Similarity_func: concatenation
+2023-05-10 11:24:36, INFO: Layerwise_graph: False
+2023-05-10 11:24:36, INFO: Skip_connection: True
+2023-05-10 11:24:36, INFO: Number of layers: 1
+2023-05-10 11:24:36, INFO: Planning depth: 1
+2023-05-10 11:24:36, INFO: Planning width: 10
+2023-05-10 11:24:36, INFO: Sparse search: None
+2023-05-10 11:24:37, INFO: human number: 5
+2023-05-10 11:24:37, INFO: Not randomize human's radius and preferred speed
+2023-05-10 11:24:37, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-05-10 11:24:37, INFO: Square width: 10, circle width: 4
+2023-05-10 11:24:37, INFO: rotation constraint: 0.5235987755982988
+2023-05-10 11:24:37, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-05-10 11:24:37, INFO: Animation.save using <class 'matplotlib.animation.FFMpegWriter'>
+2023-05-10 11:24:37, INFO: MovieWriter._run: running command: ffmpeg -f rawvideo -vcodec rawvideo -s 700x700 -pix_fmt rgba -r 4 -loglevel error -i pipe: -vcodec h264 -pix_fmt yuv420p -b 1800k -metadata artist=Me -y data/output/test_safe_10human.mp4
+2023-05-10 11:24:47, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.134919
+2023-05-31 01:13:42, INFO: Using device: cpu
+2023-05-31 01:13:42, INFO: Loaded RL weights with best VAL
+2023-05-31 01:13:42, INFO: Similarity_func: concatenation
+2023-05-31 01:13:42, INFO: Layerwise_graph: False
+2023-05-31 01:13:42, INFO: Skip_connection: True
+2023-05-31 01:13:42, INFO: Number of layers: 1
+2023-05-31 01:13:42, INFO: Similarity_func: concatenation
+2023-05-31 01:13:42, INFO: Layerwise_graph: False
+2023-05-31 01:13:42, INFO: Skip_connection: True
+2023-05-31 01:13:42, INFO: Number of layers: 1
+2023-05-31 01:13:42, INFO: Planning depth: 1
+2023-05-31 01:13:42, INFO: Planning width: 10
+2023-05-31 01:13:42, INFO: Sparse search: None
+2023-05-31 01:13:43, INFO: human number: 5
+2023-05-31 01:13:43, INFO: Not randomize human's radius and preferred speed
+2023-05-31 01:13:43, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-05-31 01:13:43, INFO: Square width: 10, circle width: 4
+2023-05-31 01:13:43, INFO: rotation constraint: 0.5235987755982988
+2023-05-31 01:13:43, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-05-31 01:13:44, INFO: Animation.save using <class 'matplotlib.animation.FFMpegWriter'>
+2023-05-31 01:13:44, INFO: MovieWriter._run: running command: ffmpeg -f rawvideo -vcodec rawvideo -s 700x700 -pix_fmt rgba -r 4 -loglevel error -i pipe: -vcodec h264 -pix_fmt yuv420p -b 1800k -metadata artist=Me -y data/output/test_safe_10human.mp4
+2023-05-31 01:13:54, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.134919
+2023-05-31 01:30:12, INFO: Using device: cpu
+2023-05-31 01:30:12, INFO: Loaded RL weights with best VAL
+2023-05-31 01:30:12, INFO: Similarity_func: concatenation
+2023-05-31 01:30:12, INFO: Layerwise_graph: False
+2023-05-31 01:30:12, INFO: Skip_connection: True
+2023-05-31 01:30:12, INFO: Number of layers: 1
+2023-05-31 01:30:12, INFO: Similarity_func: concatenation
+2023-05-31 01:30:12, INFO: Layerwise_graph: False
+2023-05-31 01:30:12, INFO: Skip_connection: True
+2023-05-31 01:30:12, INFO: Number of layers: 1
+2023-05-31 01:30:12, INFO: Planning depth: 1
+2023-05-31 01:30:12, INFO: Planning width: 10
+2023-05-31 01:30:12, INFO: Sparse search: None
+2023-05-31 01:30:13, INFO: human number: 5
+2023-05-31 01:30:13, INFO: Not randomize human's radius and preferred speed
+2023-05-31 01:30:13, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-05-31 01:30:13, INFO: Square width: 10, circle width: 4
+2023-05-31 01:30:13, INFO: rotation constraint: 0.5235987755982988
+2023-05-31 01:30:13, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-05-31 01:34:14, INFO: TEST  has success rate: 0.980, collision rate: 0.019, nav time: 10.282, total reward: 1720.3298, average return: 0.6953
+2023-05-31 01:34:14, INFO: Frequency of being in danger: 0.037 and average min separate distance in danger: 0.17
+2023-05-31 01:34:14, INFO: discomfor nums is 1572 and return is 0.6951 and length is 40886
+2023-05-31 01:34:14, INFO: Collision cases: 31 46 59 85 256 308 376 411 420 533 536 614 640 707 828 836 892 909 919
+2023-05-31 01:34:14, INFO: Timeout cases: 846
+2023-06-26 19:30:12, INFO: Using device: cpu
+2023-06-26 19:30:12, INFO: Loaded RL weights with best VAL
+2023-06-26 19:30:12, INFO: Similarity_func: concatenation
+2023-06-26 19:30:12, INFO: Layerwise_graph: False
+2023-06-26 19:30:12, INFO: Skip_connection: True
+2023-06-26 19:30:12, INFO: Number of layers: 1
+2023-06-26 19:30:12, INFO: Similarity_func: concatenation
+2023-06-26 19:30:12, INFO: Layerwise_graph: False
+2023-06-26 19:30:12, INFO: Skip_connection: True
+2023-06-26 19:30:12, INFO: Number of layers: 1
+2023-06-26 19:30:12, INFO: Planning depth: 1
+2023-06-26 19:30:12, INFO: Planning width: 10
+2023-06-26 19:30:12, INFO: Sparse search: None
+2023-06-26 19:30:14, INFO: human number: 5
+2023-06-26 19:30:14, INFO: Not randomize human's radius and preferred speed
+2023-06-26 19:30:14, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-06-26 19:30:14, INFO: Square width: 10, circle width: 4
+2023-06-26 19:30:14, INFO: rotation constraint: 0.5235987755982988
+2023-06-26 19:30:14, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-06-26 19:30:15, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.134919
+2023-06-26 19:33:38, INFO: Using device: cpu
+2023-06-26 19:33:38, INFO: Loaded RL weights with best VAL
+2023-06-26 19:33:38, INFO: Similarity_func: concatenation
+2023-06-26 19:33:38, INFO: Layerwise_graph: False
+2023-06-26 19:33:38, INFO: Skip_connection: True
+2023-06-26 19:33:38, INFO: Number of layers: 1
+2023-06-26 19:33:38, INFO: Similarity_func: concatenation
+2023-06-26 19:33:38, INFO: Layerwise_graph: False
+2023-06-26 19:33:38, INFO: Skip_connection: True
+2023-06-26 19:33:38, INFO: Number of layers: 1
+2023-06-26 19:33:38, INFO: Planning depth: 1
+2023-06-26 19:33:38, INFO: Planning width: 10
+2023-06-26 19:33:38, INFO: Sparse search: None
+2023-06-26 19:33:39, INFO: human number: 10
+2023-06-26 19:33:39, INFO: Not randomize human's radius and preferred speed
+2023-06-26 19:33:39, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-06-26 19:33:39, INFO: Square width: 10, circle width: 4
+2023-06-26 19:33:39, INFO: rotation constraint: 0.5235987755982988
+2023-06-26 19:33:39, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-06-26 19:33:42, INFO: It takes 12.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 0.971152
+2023-06-26 19:38:30, INFO: Using device: cpu
+2023-06-26 19:38:30, INFO: Loaded RL weights with best VAL
+2023-06-26 19:38:30, INFO: Similarity_func: concatenation
+2023-06-26 19:38:30, INFO: Layerwise_graph: False
+2023-06-26 19:38:30, INFO: Skip_connection: True
+2023-06-26 19:38:30, INFO: Number of layers: 1
+2023-06-26 19:38:30, INFO: Similarity_func: concatenation
+2023-06-26 19:38:30, INFO: Layerwise_graph: False
+2023-06-26 19:38:30, INFO: Skip_connection: True
+2023-06-26 19:38:30, INFO: Number of layers: 1
+2023-06-26 19:38:30, INFO: Planning depth: 1
+2023-06-26 19:38:30, INFO: Planning width: 10
+2023-06-26 19:38:30, INFO: Sparse search: None
+2023-06-26 19:38:30, INFO: human number: 5
+2023-06-26 19:38:30, INFO: Not randomize human's radius and preferred speed
+2023-06-26 19:38:30, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-06-26 19:38:30, INFO: Square width: 10, circle width: 4
+2023-06-26 19:38:30, INFO: rotation constraint: 0.5235987755982988
+2023-06-26 19:38:30, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-06-26 19:38:31, INFO: Animation.save using <class 'matplotlib.animation.FFMpegWriter'>
+2023-06-26 19:38:31, INFO: MovieWriter._run: running command: ffmpeg -f rawvideo -vcodec rawvideo -s 2100x2100 -pix_fmt rgba -r 4 -loglevel error -i pipe: -vcodec h264 -pix_fmt yuv420p -b 1800k -metadata artist=Me -y data/output/test_safe_10human.mp4
+2023-06-26 19:38:43, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.134919
+2023-06-26 19:39:32, INFO: Using device: cpu
+2023-06-26 19:39:32, INFO: Loaded RL weights with best VAL
+2023-06-26 19:39:32, INFO: Similarity_func: concatenation
+2023-06-26 19:39:32, INFO: Layerwise_graph: False
+2023-06-26 19:39:32, INFO: Skip_connection: True
+2023-06-26 19:39:32, INFO: Number of layers: 1
+2023-06-26 19:39:32, INFO: Similarity_func: concatenation
+2023-06-26 19:39:32, INFO: Layerwise_graph: False
+2023-06-26 19:39:32, INFO: Skip_connection: True
+2023-06-26 19:39:32, INFO: Number of layers: 1
+2023-06-26 19:39:32, INFO: Planning depth: 1
+2023-06-26 19:39:32, INFO: Planning width: 10
+2023-06-26 19:39:32, INFO: Sparse search: None
+2023-06-26 19:39:33, INFO: human number: 10
+2023-06-26 19:39:33, INFO: Not randomize human's radius and preferred speed
+2023-06-26 19:39:33, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-06-26 19:39:33, INFO: Square width: 10, circle width: 4
+2023-06-26 19:39:33, INFO: rotation constraint: 0.5235987755982988
+2023-06-26 19:39:33, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-06-26 19:39:33, INFO: Animation.save using <class 'matplotlib.animation.FFMpegWriter'>
+2023-06-26 19:39:33, INFO: MovieWriter._run: running command: ffmpeg -f rawvideo -vcodec rawvideo -s 2100x2100 -pix_fmt rgba -r 4 -loglevel error -i pipe: -vcodec h264 -pix_fmt yuv420p -b 1800k -metadata artist=Me -y data/output/test_safe_10human.mp4
+2023-06-26 19:39:53, INFO: It takes 12.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 0.971152
+2023-08-07 16:58:53, INFO: Using device: cpu
+2023-08-07 16:58:53, INFO: Loaded RL weights with best VAL
+2023-08-07 16:58:53, INFO: Similarity_func: concatenation
+2023-08-07 16:58:53, INFO: Layerwise_graph: False
+2023-08-07 16:58:53, INFO: Skip_connection: True
+2023-08-07 16:58:53, INFO: Number of layers: 1
+2023-08-07 16:58:53, INFO: Similarity_func: concatenation
+2023-08-07 16:58:53, INFO: Layerwise_graph: False
+2023-08-07 16:58:53, INFO: Skip_connection: True
+2023-08-07 16:58:53, INFO: Number of layers: 1
+2023-08-07 16:58:53, INFO: Planning depth: 1
+2023-08-07 16:58:53, INFO: Planning width: 10
+2023-08-07 16:58:53, INFO: Sparse search: None
+2023-08-07 16:58:55, INFO: human number: 5
+2023-08-07 16:58:55, INFO: Not randomize human's radius and preferred speed
+2023-08-07 16:58:55, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-08-07 16:58:55, INFO: Square width: 10, circle width: 4
+2023-08-07 16:58:55, INFO: rotation constraint: 0.5235987755982988
+2023-08-07 16:58:55, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-08-07 16:58:56, INFO: It takes 10.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 1.134919
+2023-08-07 17:06:57, INFO: Using device: cpu
+2023-08-07 17:06:57, INFO: Loaded RL weights with best VAL
+2023-08-07 17:06:57, INFO: Similarity_func: concatenation
+2023-08-07 17:06:57, INFO: Layerwise_graph: False
+2023-08-07 17:06:57, INFO: Skip_connection: True
+2023-08-07 17:06:57, INFO: Number of layers: 1
+2023-08-07 17:06:57, INFO: Similarity_func: concatenation
+2023-08-07 17:06:57, INFO: Layerwise_graph: False
+2023-08-07 17:06:57, INFO: Skip_connection: True
+2023-08-07 17:06:57, INFO: Number of layers: 1
+2023-08-07 17:06:57, INFO: Planning depth: 1
+2023-08-07 17:06:57, INFO: Planning width: 10
+2023-08-07 17:06:57, INFO: Sparse search: None
+2023-08-07 17:06:58, INFO: human number: 10
+2023-08-07 17:06:58, INFO: Not randomize human's radius and preferred speed
+2023-08-07 17:06:58, INFO: Training simulation: circle_crossing, test simulation: circle_crossing
+2023-08-07 17:06:58, INFO: Square width: 10, circle width: 4
+2023-08-07 17:06:58, INFO: rotation constraint: 0.5235987755982988
+2023-08-07 17:06:58, INFO: Agent is invisible and has unicycle kinematic constraint
+2023-08-07 17:07:00, INFO: It takes 12.00 seconds to finish. Final status is Reaching goal, cumulative_reward is 0.971152

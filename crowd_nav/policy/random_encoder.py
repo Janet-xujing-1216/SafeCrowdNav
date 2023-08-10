@@ -113,7 +113,7 @@ class GraphModel(nn.Module):
         self.model = GAT_RL(config, robot_state_dim, human_state_dim)
     
     def forward(self, state):
-        return self.model(self.rotate(state))[:, 0, :]
+        return self.model(self.rotate(state))[:, 0, :].to(device = "cuda:0")
 
     def rotate(self, state):
         """
@@ -442,6 +442,7 @@ class RE3():
 
     def get_embeddings(self, obs):
         """Calculate states' embeddings and add it to SampleBatch."""
+        self._encoder_net = self._encoder_net.to(device = "cuda:0")
         obs_embeds = self._encoder_net(obs)
         return obs_embeds
     

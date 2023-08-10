@@ -18,14 +18,6 @@ class ReplayMemory(Dataset):
             self.memory[self.position] = item
         self.position = (self.position + 1) % self.capacity
 
-    # def sample(self, batch_size):
-    #     # total = len(self.memory)
-    #     # indices = np.random.choice(total, batch_size, replace=False)
-    #     # samples = [self.memory[idx] for idx in indices]
-    #     samples = self.memory
-    #     return samples
-
-
     def is_full(self):
         return len(self.memory) == self.capacity
 
@@ -138,30 +130,3 @@ class PrioritizedReplayBufferDataLoader(DataLoader):
         batch = [self.memory[idx] for idx in indices.tolist()]
 
         yield batch
-# class PrioritizedReplayBufferDataLoader(DataLoader):
-#     def __init__(self, buffer, batch_size, alpha=0.6):
-#         self.buffer = buffer
-#         self.batch_size = batch_size
-#         self.alpha = alpha
-
-#        # 划分数据集
-#         # total_size = len(buffer)
-#         self.subsets = buffer.split_by_priorities(batch_size)
-
-#         super().__init__(buffer, batch_size=batch_size, shuffle=False)
-
-#     def __iter__(self):
-#         for subset in self.subsets:
-#             # 计算样本权重
-#             probs = [(p + 1e-5) ** self.alpha for p in subset.priorities]
-#             probs = torch.tensor(probs) / torch.sum(torch.tensor(probs))
-
-#             # 选择样本并计算权重
-#             indices = torch.multinomial(probs, self.batch_size, replacement=True)
-#             weights = (len(subset) * probs[indices]).pow(-self.alpha)
-#             weights = weights / torch.max(weights)
-
-#             # 根据索引获取批次数据
-#             batch = [subset[idx] for idx in indices.tolist()]
-
-#             yield batch

@@ -5,6 +5,7 @@ import torch.nn.functional as F
 import numpy as np
 from crowd_nav.policy.cadrl import mlp
 import torch.nn.utils.rnn as rnn_utils
+import math
 
 
 
@@ -338,7 +339,7 @@ class ICM():
             forward_params + inverse_params + feature_params, lr=self.lr
         )
 
-    def compute_intrinsic_reward(self, state, next_state, action):
+    def compute_intrinsic_reward(self, state, next_state, action,robot_states_seen):
         # When the reward is stored in memory and when new rewards are created in the tree search
         phi = self._curiosity_feature_net(state)
         next_phi = self._curiosity_feature_net(next_state)
@@ -346,9 +347,18 @@ class ICM():
             torch.cat((phi, F.one_hot(torch.Tensor([action]).to(torch.int64).to(phi.device), self.action_num).float()), 1)
         )
         intrinsic_reward = self.scaling_factor * F.mse_loss(next_phi, predicted_next_phi, reduction='none').mean(-1)
+        # l2_norm = torch.norm(next_phi - predicted_next_phi, dim=-1, p=2)
+        # intrinsic_reward = self.scaling_factor * l2_norm # 0.1
+        # print(next_state)
+        robot_state = (next_state[0][0][0][0], next_state[0][0][0][1], next_state[1][0][:][0], next_state[1][0][:][1])
+        # print("curi,robot_state",robot_state)
+        if robot_states_seen[robot_state] :
+            observed_times = math.sqrt(robot_states_seen[next_state])
+            print("Ntime",observed_times)
+            intrinsic_reward = intrinsic_reward / observed_times
         return intrinsic_reward.data.cpu().numpy()[0]
 
-    def compute_intrinsic_reward_batch(self, state, next_state, action):
+    def compute_intrinsic_reward_batch(self, state, next_state, action,robot_states_seen):
         # When the reward is stored in memory and when new rewards are created in the tree search
         phi = self._curiosity_feature_net(state)
         next_phi = self._curiosity_feature_net(next_state)
@@ -358,7 +368,17 @@ class ICM():
         forward_l2_norm_sqared = 0.5 * torch.sum(
             torch.pow(predicted_next_phi - next_phi, 2.0), dim=-1
         )
+        
         intrinsic_reward = self.scaling_factor * forward_l2_norm_sqared
+        # forward_l2_norm = torch.norm(predicted_next_phi - next_phi, dim=-1)
+        # intrinsic_reward = self.scaling_factor * forward_l2_norm
+        robot_state = (next_state[0][0][0][0], next_state[0][0][0][1], next_state[1][0][:][0], next_state[1][0][:][1])
+        # print("curi,robot_state",robot_state)
+        if robot_states_seen[robot_state] :
+            observed_times = math.sqrt(robot_states_seen[next_state])
+            print("Ntime",observed_times)
+            intrinsic_reward = intrinsic_reward / observed_times
+
         return intrinsic_reward.unsqueeze(1)
     
     def optimize(self, state, next_state, action):

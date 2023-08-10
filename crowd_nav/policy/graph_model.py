@@ -209,6 +209,8 @@ class GAT_RL(nn.Module):
         else:
             adj = self.compute_adjectory_matrix(state)
             # compute feature matrix X
+            self.w_r = self.w_r.to(robot_state.device)
+            self.w_h = self.w_h.to(human_states.device)
             robot_state_embedings = self.w_r(robot_state)
             human_state_embedings = self.w_h(human_states)
             X = torch.cat([robot_state_embedings, human_state_embedings], dim=1)
@@ -256,6 +258,7 @@ class GraphAttentionLayer(nn.Module):
         indices = torch.LongTensor(indices).reshape(-1).to(X.device)
         selected_features = torch.index_select(X, dim=1, index=indices)
         pairwise_features = selected_features.reshape((-1, X.size(1) * X.size(1), X.size(2) * 2))
+        self.w_a = self.w_a.to(X.device)
         A = self.w_a(pairwise_features).reshape(-1, X.size(1), X.size(1))
         return A
 

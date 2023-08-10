@@ -1,3 +1,6 @@
+import sys
+print(sys.path)
+sys.path.insert(0, '/mnt/f/xujing/intrinsic-Her-Ntime')
 import logging
 import argparse
 import importlib.util
@@ -13,6 +16,8 @@ from crowd_sim.envs.policy.orca import ORCA
 from crowd_nav.policy.reward_estimate import Reward_Estimator
 from crowd_sim.envs.utils.info import *
 from crowd_sim.envs.utils.action import ActionRot
+import matplotlib
+matplotlib.use('Agg')
 
 def main(args):
     # configure logging and device
@@ -173,7 +178,9 @@ def main(args):
             rotation_rec.append(action.r)
         plt.plot(positions, velocity_rec, color='r', marker='.', linestyle='dashed')
         plt.plot(positions, rotation_rec, color='b', marker='.', linestyle='dashed')
-        plt.show()
+        # plt.show()
+        plt.savefig('data/output/myfig.png')
+        print('finish')
     else:
         print(explorer.run_k_episodes(env.case_size[args.phase], args.phase, print_failure=True))
         if args.plot_test_scenarios_hist:
@@ -189,16 +196,16 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser('Parse configuration file')
     parser.add_argument('--config', type=str, default=None)
     parser.add_argument('--policy', type=str, default='tree_search_rl')
-    parser.add_argument('-m', '--model_dir', type=str, default='data/tsrl10rot/1')#None
+    parser.add_argument('-m', '--model_dir', type=str, default='data/output')#None
     parser.add_argument('--il', default=False, action='store_true')
     parser.add_argument('--rl', default=False, action='store_true')
-    parser.add_argument('--gpu', default=False, action='store_true')
-    parser.add_argument('-v', '--visualize', default=False, action='store_true')
+    parser.add_argument('--gpu', default=True, action='store_true')
+    parser.add_argument('-v', '--visualize', default=True, action='store_true')
     parser.add_argument('--phase', type=str, default='test')
     parser.add_argument('-c', '--test_case', type=int, default=10)
     parser.add_argument('--square', default=False, action='store_true')
     parser.add_argument('--circle', default=False, action='store_true')
-    parser.add_argument('--video_file', type=str, default=None)
+    parser.add_argument('--video_file', type=str, default='data/output/test_safe_10human.mp4')
     parser.add_argument('--video_dir', type=str, default=None)
     parser.add_argument('--traj', default=False, action='store_true')
     parser.add_argument('--debug', default=False, action='store_true')

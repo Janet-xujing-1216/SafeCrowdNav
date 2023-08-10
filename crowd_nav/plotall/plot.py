@@ -20,7 +20,7 @@ def main():
     parser.add_argument('--plot_reward', default=False, action='store_true')
     parser.add_argument('--plot_train', default=True, action='store_true')
     parser.add_argument('--plot_val', default=False, action='store_true')
-    parser.add_argument('--plot_all', default=False, action='store_true')
+    parser.add_argument('--plot_all', default=True, action='store_true')
     parser.add_argument('--window_size', type=int, default=100)
     args = parser.parse_args()
     
@@ -39,12 +39,13 @@ def main():
             parser.error('Input argument should be the directory containing all experiment folders')
         # args.log_files = [os.path.join(log_dir, exp_dir, 'output.log') for exp_dir in os.listdir(log_dir)]
         args.log_files = [os.path.join(log_dir, exp_dir, 'output.log') for exp_dir in
-                          ['sarl_linear_adam', 'mp_detach_skip', 'rgl_linear_adam', 'rgl_no_transformation',
-                           'mp_separate_graph']]
+                          ['SafeCrowdNav', 'intrinsic-Ntime', 'intrinsic-SGD3QN', 'intrinsic-Her',
+                           'AEMCARL']]
 
     args.log_files = sorted(args.log_files)
     if not models:
         models = [os.path.basename(log_file[:-11]) for log_file in args.log_files]
+        print(models)
     for i, log_file in enumerate(args.log_files):
         with open(log_file, 'r') as file:
             log = file.read()
@@ -103,7 +104,7 @@ def main():
                 ax1.plot(val_episode, val_sr)
                 ax1_legends.append(models[i])
 
-            #ax1.legend(ax1_legends)
+            # ax1.legend(ax1_legends)
             ax1.set_xlabel('Episodes',fontdict={'family':'Times New Roman','size':20})
             ax1.set_ylabel('Success Rate',fontdict={'family':'Times New Roman','size':20})
             ax1.set_title('Success rate',fontdict={'family':'Times New Roman','size':20})
@@ -119,7 +120,7 @@ def main():
                 ax2.plot(val_episode, val_time)
                 ax2_legends.append(models[i])
 
-            #ax2.legend(ax2_legends)
+            # ax2.legend(ax2_legends)
             ax2.set_xlabel('Episodes',fontdict={'family':'Times New Roman','size':20})
             ax2.set_ylabel('Time(s)',fontdict={'family':'Times New Roman','size':20})
             ax2.set_title("Robot's Time to Reach Goal",fontdict={'family':'Times New Roman','size':20})
@@ -135,7 +136,7 @@ def main():
                 ax3.plot(val_episode, val_cr)
                 ax3_legends.append(models[i])
 
-            #ax3.legend(ax3_legends)
+            # ax3.legend(ax3_legends)
             ax3.set_xlabel('Episodes',fontdict={'family':'Times New Roman','size':20})
             ax3.set_ylabel('Collision Rate',fontdict={'family':'Times New Roman','size':20})
             ax3.set_title('Collision Rate',fontdict={'family':'Times New Roman','size':20})
@@ -144,6 +145,8 @@ def main():
         if args.plot_reward:
             if ax4 is None:
                 _, ax4 = plt.subplots()
+            if models[i]=='AEMCARL':
+                train_reward_smooth = train_reward_smooth * 5
             if args.plot_train:
                 ax4.plot(range(len(train_reward_smooth)), train_reward_smooth)
                 ax4_legends.append(models[i])
@@ -153,20 +156,21 @@ def main():
             ax4.set_xlabel('Episodes',fontdict={'family':'Times New Roman','size':20})
             ax4.set_ylabel('Reward',fontdict={'family':'Times New Roman','size':20})
         if args.plot_sr:
-            #ax1.legend(ax1_legends)
+            ax1.legend(ax1_legends)
             ax1.set_title('Success rate',fontdict={'family':'Times New Roman','size':20})
 
         if args.plot_time:
-            #ax2.legend(ax2_legends)
+            ax2.legend(ax2_legends)
             ax2.set_title(" Robot's Time to Reach Goal",fontdict={'family':'Times New Roman','size':20})
 
         if args.plot_cr:
-            #ax3.legend(ax3_legends)
+            ax3.legend(ax3_legends)
             ax3.set_title('Collision Rate',fontdict={'family':'Times New Roman','size':20})
 
         if args.plot_reward:
+
             # ax4.legend(ax4_legends, loc='center left', bbox_to_anchor=(1, 0.5))
-            #ax4.legend(ax4_legends)
+            ax4.legend(ax4_legends)
             ax4.set_title('Cumulative Discounted Reward',fontdict={'family':'Times New Roman','size':20})
         plt.tick_params(axis='both', which='major')
         plt.subplots_adjust(left=0.15, right=0.9, top=0.9, bottom=0.125)
@@ -177,7 +181,14 @@ def main():
         plt.xticks(fontsize=16)  # 根据需要调整字号大小
         plt.yticks(fontsize=16)  # 根据需要调整字号大小
         
-        plt.savefig('data/output/trainfig.png',dpi=300)
-
+        if args.plot_reward:
+            plt.savefig('train_reward_fig.svg',dpi=300,format='svg')
+        if args.plot_sr:
+            plt.savefig('train_sr_fig.svg',dpi=300,format='svg')
+        if args.plot_cr:
+            plt.savefig('train_cr_fig.svg',dpi=300,format='svg')
+        if args.plot_time:
+            plt.savefig('train_time_fig.svg',dpi=300,format='svg')
+            
 if __name__ == '__main__':
     main()

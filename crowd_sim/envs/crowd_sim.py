@@ -592,9 +592,10 @@ class CrowdSim(gym.Env):
                     for human_direction in human_directions:
                         ax.add_artist(human_direction)
             plt.legend([robot], ['Robot'], fontsize=16)
-            plt.show()
+            # plt.show()
+            plt.savefig('data/output/traj_10human.svg',dpi=300,format='svg')
         elif mode == 'video':
-            fig, ax = plt.subplots(figsize=(7, 7))
+            fig, ax = plt.subplots(figsize=(7, 7),dpi=300)
             ax.tick_params(labelsize=12)
             ax.set_xlim(-self.panel_width/2, self.panel_width/2)
             ax.set_ylim(-self.panel_height/2, self.panel_height/2)
@@ -635,7 +636,7 @@ class CrowdSim(gym.Env):
                 if display_numbers:
                     if hasattr(self.robot.policy, 'get_attention_weights'):
                         attentions =[plt.text(robot.center[0] + x_offset, robot.center[1] + y_offset,
-                                              '{:.2f}'.format(self.attention_weights[0][0]),color='black',fontsize=12)]
+                                              '{:.2f}'.format(self.attention_weights[0][0]*10),color='black',fontsize=12)]
                 # add time annotation
                 time = plt.text(0.4, 1.02, 'Time: {}'.format(0), fontsize=20, transform=ax.transAxes)
                 ax.add_artist(time)
@@ -679,7 +680,7 @@ class CrowdSim(gym.Env):
                     if hasattr(self.robot.policy, 'get_attention_weights'):
                         if self.test_changing_size is True:
                             robot_attention = [plt.text(robot.center[0] + x_offset, robot.center[1] + y_offset,
-                                                        '{:.2f}'.format(self.attention_weights[0][0]), color='black',
+                                                        '{:.2f}'.format(self.attention_weights[0][0])*10, color='black',
                                                         fontsize=12)]
                             human_attentions = []
                             count = 0
@@ -701,7 +702,7 @@ class CrowdSim(gym.Env):
                             attentions = robot_attention + human_attentions
                         else:
                             attentions =[plt.text(robot.center[0] + x_offset, robot.center[1] + y_offset,
-                                                  '{:.2f}'.format(self.attention_weights[0][0]),color='black',fontsize=12)] + \
+                                                  '{:.2f}'.format(self.attention_weights[0][0])*10,color='black',fontsize=12)] + \
                                         [plt.text(humans[i].center[0] + x_offset, humans[i].center[1] + y_offset, '{:.2f}'.format(self.attention_weights[0][i+1]),
                                       color='black',fontsize=12) for i in range(len(self.humans))]
                 for i, human in enumerate(humans):
