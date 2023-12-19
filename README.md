@@ -3,6 +3,7 @@
 # SafeCrowdNav: Safety Evaluation of Robot Crowd Navigation in complex scenes
 
 # [Paper](https://www.frontiersin.org/articles/10.3389/fnbot.2023.1276519/full)
+This paper is available in frontiers.
 
 ## Abstract
 Navigating safely and efficiently in dense crowds remains a challenging problem for mobile robots. The interaction mechanisms involved in collision avoidance require robots to exhibit active and foresighted behaviors while understanding the crowd dynamics. Deep reinforcement learning methods have shown superior performance compared to model-based approaches. However, existing methods lack an intuitive and quantitative safety evaluation for agents, and they may potentially trap agents in local optima during training, hindering their ability to learn optimal strategies. In addition, sparse reward problems further compound these limitations. To address these challenges, we propose SafeCrowdNav, a comprehensive crowd navigation algorithm that emphasizes obstacle avoidance in complex environments. Our approach incorporates a safety evaluation function to quantitatively assess the current safety score and an intrinsic exploration reward to balance exploration and exploitation based on scene constraints. By combining prioritized experience replay and hindsight experience replay techniques, our model effectively learns the optimal navigation policy in crowded environments. Experimental results demonstrate that our approach enhances the robot's understanding of the crowd, leading to lower collision probabilities and shorter navigation times compared to state-of-the-art algorithms.
@@ -85,5 +86,12 @@ python test.py --traj --human_num 10
 This work is based on [CrowdNav](https://github.com/vita-epfl/CrowdNav) and [SG-D3QN](https://github.com/nubot-nudt/SG-D3QN) and [intrinsic-SGD3QN](https://github.com/dmartinezbaselga/intrinsic-rewards-navigation.git).  The authors are thankful for their works and for making them available.
 
 ## Citation
-The citation will be updated when the conference proceeding are available.
+@article{xu2023safecrowdnav,
+  title={SafeCrowdNav: safety evaluation of robot crowd navigation in complex scenes},
+  author={Xu, Jing and Zhang, Wanruo and Cai, Jialun and Liu, Hong},
+  journal={Frontiers in neurorobotics},
+  volume={17},
+  year={2023},
+  publisher={Frontiers Media SA}
+}
 
