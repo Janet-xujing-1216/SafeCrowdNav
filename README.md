@@ -86,6 +86,7 @@ python test.py --traj --human_num 10
 This work is based on [CrowdNav](https://github.com/vita-epfl/CrowdNav) and [SG-D3QN](https://github.com/nubot-nudt/SG-D3QN) and [intrinsic-SGD3QN](https://github.com/dmartinezbaselga/intrinsic-rewards-navigation.git).  The authors are thankful for their works and for making them available.
 
 ## Citation
+```
 @article{xu2023safecrowdnav,
   title={SafeCrowdNav: safety evaluation of robot crowd navigation in complex scenes},
   author={Xu, Jing and Zhang, Wanruo and Cai, Jialun and Liu, Hong},
@@ -94,4 +95,6 @@ This work is based on [CrowdNav](https://github.com/vita-epfl/CrowdNav) and [SG-
   year={2023},
   publisher={Frontiers Media SA}
 }
+
+```
 
