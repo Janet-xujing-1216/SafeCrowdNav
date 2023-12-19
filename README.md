@@ -2,7 +2,7 @@
 
 # SafeCrowdNav: Safety Evaluation of Robot Crowd Navigation in complex scenes
 
-# Paper
+## Paper
 This paper is available in frontiers.[SafeCrowdNav](https://www.frontiersin.org/articles/10.3389/fnbot.2023.1276519/full)
 
 ## Abstract
